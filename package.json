@@ -2,7 +2,7 @@
   "name": "moonspeak",
   "private": true,
   "devDependencies": {
-    "aui": "^0.11.5",
+    "aui": "^2.0.2",
     "baconjs": "^0.7.66",
     "better-console": "^0.2.4",
     "brfs": "^1.4.0",

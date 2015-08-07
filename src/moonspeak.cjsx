@@ -1,4 +1,4 @@
-{Aui, Bacon, React} = require './deps.cjsx'
+{Aui, React} = require './deps.cjsx'
 
 symbols = "♈☽♋♎♌♍♊♘☥♃♐☾♂♆☉♓☿♑☆♉♄♀♅♏☄♒".split ''
 empowered = "🌠"
