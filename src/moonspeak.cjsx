@@ -34,6 +34,7 @@ magic =
 
 
 Page = React.createClass
+  mixins: [Aui.Mixin]
   getInitialState: -> icon: ''
   onClick: (event) ->
     event.target.select()
@@ -42,19 +43,17 @@ Page = React.createClass
     state[event.target.name] = magic[event.target.name] event.target.value
     @setState state
   render: ->
-    <Aui>
-      <div ui page grid>
-        <div ui inverted segment column>
-          <form ui form onSubmit={(event) -> event.preventDefault()}>
-            <div field>
-              <textarea scryt ui inverted input name="enscribe" onKeyUp={@onChange} onClick={@onClick} placeholder="Pony Scryt" setValue={@state.decypher}></textarea>
-            </div>
-            <div field>
-              <textarea ui inverted input name="decypher" onKeyUp={@onChange} onClick={@onClick} placeholder="🌠♂☉☉♆☆♓♌♈♐" setValue={@state.enscribe}></textarea>
-            </div>
-          </form>
-        </div>
+    <div ui page grid>
+      <div ui inverted segment column>
+        <form ui form onSubmit={(event) -> event.preventDefault()}>
+          <div field>
+            <textarea scryt ui inverted input name="enscribe" onKeyUp={@onChange} onClick={@onClick} placeholder="Pony Scryt" setValue={@state.decypher}></textarea>
+          </div>
+          <div field>
+            <textarea ui inverted input name="decypher" onKeyUp={@onChange} onClick={@onClick} placeholder="🌠♂☉☉♆☆♓♌♈♐" setValue={@state.enscribe}></textarea>
+          </div>
+        </form>
       </div>
-    </Aui>
+    </div>
 
 React.render <Page/>, document.body
