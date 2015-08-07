@@ -32,25 +32,23 @@ magic =
     #console.log logs.join ''
     result
 
-
 Page = React.createClass
   mixins: [Aui.Mixin]
   getInitialState: -> icon: ''
   onClick: (event) ->
     event.target.select()
   onChange: (event) ->
-    state = {}
-    state[event.target.name] = magic[event.target.name] event.target.value
-    @setState state
+    @$ 'form'
+      .form 'set value', event.target.name, magic[event.target.name] event.target.value
   render: ->
     <div ui page grid>
       <div ui inverted segment column>
-        <form ui form onSubmit={(event) -> event.preventDefault()}>
+        <form ui ref="form" form={[onSuccess: -> no]}>
           <div field>
-            <textarea scryt ui inverted input name="enscribe" onKeyUp={@onChange} onClick={@onClick} placeholder="Pony Scryt" setValue={@state.decypher}></textarea>
+            <textarea scryt ui inverted input name="enscribe" onKeyUp={@onChange} onClick={@onClick} placeholder="Pony Scryt"></textarea>
           </div>
           <div field>
-            <textarea ui inverted input name="decypher" onKeyUp={@onChange} onClick={@onClick} placeholder="🌠♂☉☉♆☆♓♌♈♐" setValue={@state.enscribe}></textarea>
+            <textarea ui inverted input name="decypher" onKeyUp={@onChange} onClick={@onClick} placeholder="🌠♂☉☉♆☆♓♌♈♐"></textarea>
           </div>
         </form>
       </div>
